@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+</head>
+<body>
+
+<header>
+    <h2>Brain Tumor Detection</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <button class="login-btn">Login</button>
+    </nav>
+</header>
+
+<div class="result-container">
+
+   <div class="main-container">
+
+    <!-- 🔲 BOX 1: MRI + DETAILS -->
+    <div class="card mri-card">
+
+        <h3 class="section-title">Uploaded MRI</h3>
+
+        <div class="mri-content">
+
+            <!-- LEFT: MRI IMAGE -->
+            <div class="mri-image">
+                <img src="{{ image_path }}" alt="MRI Scan">
+                <p class="img-label">Uploaded MRI</p>
+            </div>
+
+            <!-- RIGHT: DETAILS -->
+            <div class="mri-details">
+                <p><span>🧬 Tumor Type:</span> {{ result.tumor_type }}</p>
+
+                <p><span>📊 Confidence:</span> {{ result.confidence }}%</p>
+                <div class="progress-bar">
+                    <div class="progress" ></div>
+                </div>
+
+                <p><span>📍 Affected Area:</span> {{ result.area }}</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 🔲 BOX 2: RESULT ANALYSIS -->
+    <div class="card analysis-card">
+
+        <h3 class="section-title">Result Analysis</h3>
+
+        <div class="analysis-content">
+            <p><span>🧬 Tumor Type:</span> {{ result.tumor_type }}</p>
+            <p><span>📊 Confidence:</span> {{ result.confidence }}%</p>
+            <p><span>📍 Affected Area:</span> {{ result.area }}</p>
+
+            <p><span class="highlight">Description:</span> {{ result.description }}</p>
+            <p><span>⚠ Possible Cause:</span> {{ result.cause }}</p>
+            <p><span>💡 Suggestion:</span> {{ result.suggestion }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
